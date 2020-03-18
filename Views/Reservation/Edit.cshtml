@@ -1,0 +1,36 @@
+﻿@model Examen.Models.Reservation
+
+@{
+    ViewBag.Title = "Editare reservation";
+}
+
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+<h2>@ViewBag.Title</h2>
+<form method="post" action="/Reservation/Edit/@Model.IDReservation">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(m => m.IDReservation)
+    @Html.Label("Titlu", "Titlu reservation")
+    <br />
+    @Html.TextBoxFor(m => m.Titlu)
+    @Html.ValidationMessageFor(m => m.Titlu, "Titlul este obligatoriu", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Descriere", "Descriere reservation")
+    <br />
+    @Html.TextAreaFor(m => m.Descriere)
+    @Html.ValidationMessageFor(m => m.Descriere, "Descrierea este obligatorie", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("NrPersoane", "NrPersoane reservation")
+    <br />
+    @Html.TextBoxFor(m => m.NrPersoane)
+    @Html.ValidationMessageFor(m => m.NrPersoane, "NrPersoane trebuie sa fie intre 1 si 10", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Data", "Data reservation")
+    <br />
+    <p>@Model.Data</p>
+    @Html.DropDownListFor(m => m.IDRestaurant, new SelectList(Model.Restaurants, "Value", "Text"), "Selectati restaurantul", new { @class = "form-control" })
+    <button type="submit">Modifica reservation</button>
+</form>

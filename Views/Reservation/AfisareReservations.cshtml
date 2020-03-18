@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AfisareReservations";
+}
+
+<h1>@ViewBag.message</h1>
+
+<h2>AfisareReservations</h2>
+
+@foreach (Examen.Models.Reservation reservation in ViewBag.Reservations)
+{
+    @Html.Partial("ReservationInfo", reservation)
+}
+
+<a href="/Reservation/New">Creare rezervare</a>

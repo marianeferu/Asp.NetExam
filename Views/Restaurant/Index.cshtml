@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Afisare lista restaurante";
+}
+
+<h2>Afisare lista restaurante</h2>
+
+@foreach (var restaurant in ViewBag.Restaurants)
+{
+    <a href="/Restaurant/Show/@restaurant.IDRestaurant">@restaurant.Denumire</a>
+    <br />
+    <br />
+}

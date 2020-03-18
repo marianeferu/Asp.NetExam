@@ -1,0 +1,28 @@
+﻿@model Examen.Models.Reservation
+
+@{
+    ViewBag.Title = "Reservation nou";
+}
+
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+<h2>@ViewBag.Title</h2>
+<form method="post" action="/Reservation/New">
+    @Html.Label("Titlu", "Titlu reservation")
+    <br />
+    @Html.TextBox("Titlu")
+    <br />
+    <br />
+    @Html.Label("Descriere", "Descriere reservation")
+    <br />
+    @Html.TextArea("Descriere")
+    <br />
+    <br />
+    @Html.Label("NrPersoane", "NrPersoane reservation")
+    <br />
+    @Html.TextBox("NrPersoane")
+    <br />
+    <br />
+    @Html.DropDownListFor(m => m.IDRestaurant, new SelectList(Model.Restaurants, "Value", "Text"), "Selectati restaurantul", new { @class = "form-control" })
+    <button type="submit">Adauga reservation</button>
+</form>

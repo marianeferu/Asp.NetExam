@@ -1,0 +1,14 @@
+﻿@model Examen.Models.Restaurant
+
+@{
+    ViewBag.Title = Model.Denumire;
+}
+
+<h2>@Model.Denumire</h2>
+
+@foreach (Examen.Models.Reservation reservation in Model.Reservations)
+{
+    @Html.Partial("ReservationInfo", reservation)
+}
+
+<a href="/Reservation/New">Creare Rezervare</a>

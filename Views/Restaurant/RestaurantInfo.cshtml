@@ -1,0 +1,15 @@
+﻿
+@model Examen.Models.Reservation
+
+<h3>@Model.Titlu</h3>
+<p>@Model.Descriere</p>
+<p>@Model.NrPersoane</p>
+<p>@Model.Restaurant.Denumire</p>
+<p>@Model.Data</p>
+<a href="/Reservation/Show/@Model.IDReservation">Show reservation</a>
+<a href="/Reservation/Edit/@Model.IDReservation">Editare</a>
+<form method="post" action="/Reservation/Delete/@Model.IDReservation">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+
+    <button type="submit">Sterge rezervare</button>
+</form>
